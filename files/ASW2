@@ -1,1 +1,7 @@
 spanning-tree mode rapid-pvst
+int e1/0
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+errdisable recovery cause bpduguard
+errdisable recovery interval 600
