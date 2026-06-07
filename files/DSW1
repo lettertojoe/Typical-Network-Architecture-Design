@@ -1,2 +1,7 @@
+int e1/0-1
 DSW1(config-if-range)#switchport trunk encapsulation dot1q
 DSW1(config-if-range)#switchport mode trunk
+int range e0/2-3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
