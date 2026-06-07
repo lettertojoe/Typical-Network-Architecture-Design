@@ -7,3 +7,4 @@ channel-group 1 mode passive
 exit
 
 spanning-tree mode rapid-pvst
+spanning-tree vlan 1,10,20,30 priority 4096
