@@ -7,3 +7,4 @@ switchport mode trunk
 channel-group 1 mode active
 exit
 spanning-tree mode rapid-pvst
+spanning-tree vlan 1,10,20,30 priority 0
