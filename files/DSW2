@@ -8,3 +8,7 @@ exit
 
 spanning-tree mode rapid-pvst
 spanning-tree vlan 1,10,20,30 priority 4096
+interface Vlan 10
+no shutdown
+ip address 10.0.0.2 255.255.255.128
+exi
