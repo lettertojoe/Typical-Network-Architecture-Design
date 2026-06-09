@@ -1,14 +1,35 @@
-int e1/0-1
-DSW1(config-if-range)#switchport trunk encapsulation dot1q
-DSW1(config-if-range)#switchport mode trunk
-int range e0/2-3
+
+en
+conf t
+line console 0
+logging synch
+exec-timeout 0 0
+exit
+
+no ip domain-lookup
+
+hostname DSW1
+
+vlan 10
+name CLIENTS
+
+vlan 20
+name VOICE
+
+vlan 30
+name PRINTERS
+
+vlan 40
+name MANAGEMENT
+
+interface range e0/2 - 3
 switchport trunk encapsulation dot1q
 switchport mode trunk
 channel-group 1 mode active
 exit
+
 spanning-tree mode rapid-pvst
 spanning-tree vlan 1,10,20,30 priority 0
-interface Vlan 10
-no shutdown
-ip address 10.0.0.1 255.255.255.128
-exit
+
+
+
