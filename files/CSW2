@@ -1,6 +1,20 @@
-interface range GigabitEthernet0/0 - 1
+en
+conf t
+line console 0
+logging synch
+exec-timeout 0 0
+exit
+
+no ip domain-lookup
+
+hostname CSW2
+
+int e1/0
+description LINK-TO-R1
+exit
+
+interface range e0/0 - 1
 no shutdown
 no switchport
 channel-group 1 mode on
 exit
-
