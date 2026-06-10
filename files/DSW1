@@ -32,4 +32,8 @@ spanning-tree mode rapid-pvst
 spanning-tree vlan 1,10,20,30 priority 0
 
 
+spanning-tree vlan 10 hello-time 3
+spanning-tree vlan 10 forward-time 10
+spanning-tree vlan 10 max-age 20
+
 
