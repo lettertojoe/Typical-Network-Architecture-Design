@@ -48,3 +48,8 @@ exit
 errdisable recovery cause bpduguard
 errdisable recovery interval 600
 
+spanning-tree vlan 10 hello-time 3
+spanning-tree vlan 10 forward-time 10
+spanning-tree vlan 10 max-age 20
+
+
