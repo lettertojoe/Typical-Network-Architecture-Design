@@ -33,3 +33,20 @@ spanning-tree vlan 1,10,20,30 priority 4096
 spanning-tree vlan 10 hello-time 3
 spanning-tree vlan 10 forward-time 10
 spanning-tree vlan 10 max-age 20
+
+interface Vlan 10
+no shutdown
+ip address 10.0.0.2 255.255.255.128
+
+interface Vlan 20
+no shutdown
+ip address 10.0.0.130 255.255.255.192
+
+interface Vlan 30
+no shutdown
+ip address 10.0.0.194 255.255.255.240
+
+interface Vlan 40
+no shutdown
+ip address 10.0.0.210 255.255.255.248
+
