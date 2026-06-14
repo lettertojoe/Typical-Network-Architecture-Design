@@ -8,3 +8,30 @@ exit
 no ip domain-lookup
 
 hostname R1
+
+interface loopback 0
+ip address 10.0.128.1 255.255.255.255
+
+interface e0/0
+ip address 10.0.131.22 255.255.255.252
+
+interface e0/1
+ip address 10.0.131.26 255.255.255.252
+
+interface e0/2
+ip address 172.16.1.1 255.255.255.252
+no shutdown
+
+ip route 0.0.0.0 0.0.0.0 172.16.1.2
+
+router ospf 1
+network 10.0.131.20 0.0.0.3 area 0
+network 10.0.131.24 0.0.0.3 area 0
+network 10.0.128.1 0.0.0.0 area 0
+exit
+
+router ospf 1
+default-information originate
+
+
+
