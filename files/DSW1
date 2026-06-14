@@ -52,4 +52,29 @@ interface Vlan 40
 no shutdown
 ip address 10.0.0.209 255.255.255.248
 
+interface Loopback 0
+ip address 10.0.128.4 255.255.255.255
 
+interface e0/0
+no switchport
+ip address 10.0.131.1 255.255.255.252
+
+interface e0/1
+no switchport
+ip address 10.0.131.5 255.255.255.252
+
+router ospf 1
+network 10.0.131.0 0.0.0.3 area 0
+network 10.0.131.4 0.0.0.3 area 0
+network 10.0.128.4 0.0.0.0 area 0
+network 10.0.0.0 0.0.0.127 area 0
+network 10.0.0.128 0.0.0.63 area 0
+network 10.0.0.192 0.0.0.15 area 0
+network 10.0.0.208 0.0.0.7 area 0
+exit
+
+router ospf 1
+passive-interface vlan 10
+passive-interface vlan 20
+passive-interface vlan 30
+exit
