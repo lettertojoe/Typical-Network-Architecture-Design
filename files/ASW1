@@ -61,3 +61,6 @@ interface Vlan 40
 no shutdown
 ip address 10.0.0.211 255.255.255.248
 
+interface Loopback 0
+ip address 10.0.128.6 255.255.255.255
+
