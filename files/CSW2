@@ -18,3 +18,37 @@ no shutdown
 no switchport
 channel-group 1 mode on
 exit
+
+interface Loopback 0
+ip address 10.0.128.3 255.255.255.255
+
+interface e0/2
+no switchport
+ip address 10.0.131.14 255.255.255.252
+
+interface e0/3
+no switchport
+ip address 10.0.131.6 255.255.255.252
+
+interface Port-channel1
+no switchport
+ip address 10.0.131.18 255.255.255.252
+
+interface e1/0
+no switchport
+ip address 10.0.131.25 255.255.255.252
+exit
+
+
+router ospf 1
+network 10.0.131.4 0.0.0.3 area 0
+network 10.0.131.12 0.0.0.3 area 0
+network 10.0.131.16 0.0.0.3 area 0
+network 10.0.131.24 0.0.0.3 area 0
+network 10.0.128.3 0.0.0.0 area 0
+exit
+
+interface Port-channel 1
+ip ospf network point-to-point
+exit
+
