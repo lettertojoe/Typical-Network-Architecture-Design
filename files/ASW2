@@ -55,3 +55,6 @@ spanning-tree vlan 10 max-age 20
 interface Vlan 40
 no shutdown
 ip address 10.0.0.212 255.255.255.248
+
+interface Loopback 0
+ip address 10.0.128.7 255.255.255.255
