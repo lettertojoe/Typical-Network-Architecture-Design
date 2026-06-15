@@ -33,5 +33,41 @@ exit
 router ospf 1
 default-information originate
 
+ip dhcp pool VLAN10
+network 10.0.0.0 255.255.255.128
+default-router 10.0.0.3
+dns-server 1.1.1.1
+domain-name MYDOMAIN.LOCAL
+lease 2 0 0
+exit
+
+ip dhcp pool VLAN20
+network 10.0.0.128 255.255.255.192
+option 150 ip 10.0.0.135
+exit
+
+clock timezone WAT 1
+
+ntp server 1.1.1.1
+
+banner login # This is R1 - authorized users only#
+
+ip access-list extended VLAN10_NO_HTTP_ISP
+deny tcp 10.0.0.0 0.0.0.127 host 1.1.1.1 eq 80
+permit ip any any
+
+int GigabitEthernet 0/0
+ip access-group VLAN10_NO_HTTP_ISP in 
+GigabitEthernet 0/1
+ip access-group VLAN10_NO_HTTP_ISP in
+
+interface GigabitEthernet 0/2
+ip access-group VLAN10_NO_HTTP_ISP out
+
+cdp run
+cdp timer 5
+cdp holdtime 60
+
+
 
 
