@@ -52,3 +52,12 @@ interface Port-channel 1
 ip ospf network point-to-point
 exit
 
+clock timezone WAT 1
+
+ntp server 10.0.128.1
+
+
+cdp run
+cdp timer 5
+cdp holdtime 60
+
