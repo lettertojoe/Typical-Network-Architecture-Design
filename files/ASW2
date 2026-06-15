@@ -62,3 +62,15 @@ ip address 10.0.128.7 255.255.255.255
 router ospf 1
 network 10.0.0.208 0.0.0.7 area 0
 network 10.0.128.7 0.0.0.0 area 0
+exit
+
+clock timezone WAT 1
+
+ntp server 10.0.128.5
+
+cdp run
+cdp timer 5
+cdp holdtime 60
+
+
+
