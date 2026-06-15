@@ -61,3 +61,11 @@ ip ospf hello-interval 5
 ip ospf dead-interval 15
 exit
 
+clock timezone WAT 1
+
+ntp server 10.0.128.1
+
+cdp run
+cdp timer 5
+cdp holdtime 60
+
