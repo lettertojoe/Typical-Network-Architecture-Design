@@ -78,3 +78,29 @@ passive-interface vlan 10
 passive-interface vlan 20
 passive-interface vlan 30
 exit
+
+interface vlan 10
+vrrp 1 ip 10.0.0.3
+exit
+
+interface Vlan10
+ip helper-address 10.0.128.1
+exit
+interface Vlan20
+ip helper-address 10.0.128.1
+exit
+
+clock timezone WAT 1
+
+ntp server 10.0.128.2 prefer
+ntp server 10.0.128.3
+
+logging on
+logging 10.0.0.240
+exit
+
+cdp run
+cdp timer 5
+cdp holdtime 60
+
+
